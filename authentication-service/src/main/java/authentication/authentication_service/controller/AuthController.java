@@ -2,7 +2,6 @@ package authentication.authentication_service.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,7 +39,7 @@ public class AuthController {
         return ResponseEntity.ok("Registered");
     }
 
-    @PostMapping("api/v1/token")
+    @PostMapping("/token")
     public TokenResponse getToken(@RequestBody User user) {
         clientService.checkCredentials(
             user.getLogin(), user.getPassword());

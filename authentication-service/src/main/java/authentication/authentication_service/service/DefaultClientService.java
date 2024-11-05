@@ -22,7 +22,7 @@ public class DefaultClientService implements ClientService {
 
     @Override
     public void register(String login, String password) {
-        if(userRepository.findByLogin(login) != null)
+        if(userRepository.findByLogin(login).isEmpty())
             throw new RegistrationException(
                 "Client with id: " + login + " already registered");
 
