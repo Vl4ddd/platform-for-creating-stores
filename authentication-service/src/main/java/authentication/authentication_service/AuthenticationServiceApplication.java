@@ -1,4 +1,4 @@
-package microservice.authentication.authentication_service;
+package authentication.authentication_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
