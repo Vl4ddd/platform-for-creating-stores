@@ -1,13 +1,13 @@
-package authentication.authentication_service;
+package com.optimagrowth.eurekaserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthenticationApplication {
+public class EurekaserverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthenticationApplication.class, args);
+		SpringApplication.run(EurekaserverApplication.class, args);
 	}
 
 }

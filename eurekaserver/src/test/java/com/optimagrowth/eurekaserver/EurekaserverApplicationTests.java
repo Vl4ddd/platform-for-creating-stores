@@ -1,16 +1,13 @@
-package authentication.authentication_service;
-
-
+package com.optimagrowth.eurekaserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AuthenticationServiceApplicationTests {
+class EurekaserverApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }
