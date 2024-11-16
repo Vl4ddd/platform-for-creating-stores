@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  platformstore:
+    image: platformstore
+    ports:
+      - "8080:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    networks:
+      backend:
+        aliases:
+          - "platformstore"
+
+networks:
+  backend:
+    driver: bridge
