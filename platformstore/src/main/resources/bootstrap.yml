@@ -1,0 +1,8 @@
+spring:
+    application:
+     name: platformstore
+    profiles:
+      active: defolt
+    cloud:
+        config: 
+            uri: http://configserver:8071

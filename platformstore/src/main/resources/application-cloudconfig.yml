@@ -1,0 +1,13 @@
+server:
+  port:
+    8080
+
+spring:
+  application:
+    name: paltformstore
+  config:
+    import: 'optional: configserver'
+  cloud:
+    config:
+      uri: http://configserver:8888
+
