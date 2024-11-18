@@ -1,36 +1,53 @@
-version: '3.8'
-
 services:
+
   platformstore:
     image: platformstore
     ports:
       - "8080:8080"
     environment:
-      PROFILE: "defolt"
+      PROFILE: "default"
       CONFIGSERVER_URI: "http://configserver:8888"
-      CONFIGSERVER_PORT:   "8888"
+      CONFIGSERVER_PORT: "8888"
       SPRING_APPLICATION_NAME: platformstore
-      SPRING_PROFILES_ACTIVE: "defolt"
-      
+      SPRING_PROFILES_ACTIVE: "default"
+    depends_on:
+      configserver:
+        condition: service_healthy
 
     networks:
-        backend:
-          aliases:
-            - "platformstore"
-  
+      backend:
+        aliases:
+          - "platformstore"
+
   configserver:
-      image: configserver
-      ports:
-        - "8888:8888"
-      environment:
-          ENCRYPT_KEY: "fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo"
-          SPRING_CLOUD_CONFIG_SERVER_GIT_URI: "https://github.com/Vl4ddd/platfrom-store-properties"  
-          SPRING_CLOUD_CONFIG_SERVER_GIT_BRANCH: "main"
-          
-      networks:
-          backend:
-            aliases:
-              - "configserver"
+    image: configserver
+    ports:
+      - "8888:8888"
+    environment:
+      ENCRYPT_KEY: "fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo"
+      SPRING_CLOUD_CONFIG_SERVER_GIT_URI: "https://github.com/Vl4ddd/platfrom-store-properties"
+      SPRING_CLOUD_CONFIG_SERVER_GIT_BRANCH: "main"
+    networks:
+      backend:
+        aliases:
+          - "configserver"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  eurekaserver:
+    image: eurekaserver
+    ports:
+      - "8761:8761"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    networks:
+      backend:
+        aliases:
+          - "eurekaserver"
 
 networks:
   backend:
