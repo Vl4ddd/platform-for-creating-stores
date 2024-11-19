@@ -1,9 +1,9 @@
-FROM openjdk:17-jdk-slim AS build
-
+FROM maven:3.9.0-openjdk-17-slim AS build
 WORKDIR /app
-COPY . .
-RUN apt-get update && apt-get install -y maven
-RUN mvn package -DskipTests
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn clean package -DskipTests
 
 FROM openjdk:17-jdk-slim
 WORKDIR /app
