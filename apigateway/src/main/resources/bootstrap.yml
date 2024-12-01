@@ -6,3 +6,5 @@ spring:
     cloud:
         config: 
             uri: http://configserver:8888
+    config:
+      import: configserver:http://configserver:8888
