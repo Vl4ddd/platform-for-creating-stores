@@ -13,6 +13,7 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+      
 
     networks:
       backend:
