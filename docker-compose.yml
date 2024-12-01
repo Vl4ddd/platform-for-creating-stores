@@ -12,7 +12,9 @@ services:
       SPRING_PROFILES_ACTIVE: "default"
     depends_on:
       eurekaserver:
-        condition: service_healthy
+        condition: service_started
+      configserver:
+        condition: service_started
       
 
     networks:
@@ -44,11 +46,33 @@ services:
       - "8761:8761"
     depends_on:
       configserver:
-        condition: service_healthy
+        condition: service_started
     networks:
       backend:
         aliases:
           - "eurekaserver"
+
+
+  gatewayserver:
+    image: gatewayserver
+    ports:
+      - "8072:8072"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8072"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8888"
+      CONFIGSERVER_PORT: "8761"
+    depends_on:
+      configserver:
+        condition: service_started
+      eurekaserver:
+        condition: service_started
+    networks:
+      backend:
+        aliases:
+          - "gateway"
 
 networks:
   backend:
