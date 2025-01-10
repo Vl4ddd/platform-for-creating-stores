@@ -11,9 +11,10 @@ services:
       SPRING_APPLICATION_NAME: platformstore
       SPRING_PROFILES_ACTIVE: "default"
     depends_on:
+      eurekaserver:
+        condition: service_started
       configserver:
-        condition: service_healthy
-      
+        condition: service_started
 
     networks:
       backend:
@@ -34,8 +35,8 @@ services:
           - "configserver"
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
-      interval: 30s
-      timeout: 10s
+      interval: 5s
+      timeout: 2s
       retries: 5
 
   eurekaserver:
@@ -44,11 +45,32 @@ services:
       - "8761:8761"
     depends_on:
       configserver:
-        condition: service_healthy
+        condition: service_started
     networks:
       backend:
         aliases:
           - "eurekaserver"
+
+  gatewayserver:
+    image: gatewayserver
+    ports:
+      - "8072:8072"
+    environment:
+      SPRING_APPLICATION_NAME: "gateway-server"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      PROFILE: "default"
+      SERVER_PORT: "8072"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      CONFIGSERVER_PORT: "8888"
+    depends_on:
+      configserver:
+        condition: service_started
+      eurekaserver:
+        condition: service_started
+    networks:
+      backend:
+        aliases:
+          - "gateway"
 
 networks:
   backend:
