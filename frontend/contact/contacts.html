@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Свяжитесь с нами через форму обратной связи." />
+    <meta name="keywords" content="контакты, обратная связь, поддержка" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/skel.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style-medium.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <style>
+        /* Стили для формы контактов */
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #00BFFF;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #009ACD;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">Лого</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="catalog.html" class="button special">Каталог</a></li>
+                <li><a href="help.html">Помощь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+				<li><a href="profile.html">Профиль</a></li>
+                <li><a href="login.html">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="12u 12u$(medium)">
+                <h2>Свяжитесь с нами</h2>
+                <p>Если у вас есть вопросы или предложения, пожалуйста, заполните форму ниже:</p>
+                <form class="contact-form" action="submit_contact.php" method="post">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Электронная почта:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="12u 12u$(medium)">
+                <h3>Контактная информация</h3>
+                <p>Вы также можете связаться с нами по следующим контактам:</p>
+                <ul>
+                    <li>Электронная почта: support@magazine.com</li>
+                    <li>Телефон: +7 (123) 456-78-90</li>
+                    <li>Часы работы: Пн-Пт с 9:00 до 18:00</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="3u 6u(medium) 12u$(small)">
+                        <h3>Ссылки</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Telegram</a></li>
+                            <li><a href="#">VK</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u 6u$(medium) 12u$(small)">
+                        <h3>Помощь</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Документация</a></li>
+                            <li><a href="#">Гайд</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u$ 6u$(medium) 12u$(small)">
+                        <h3>О компании</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Наша команда</a></li>
+                            <li><a href="#">Сотрудничество</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>

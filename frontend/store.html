@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <meta name="description" content="Корзина покупок на платформе" />
+    <meta name="keywords" content="корзина, покупки, онлайн-магазин" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/skel.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style-medium.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <style>
+        /* Стили для заголовка */
+        #header {
+            background-color: #f4f4f4 !important; /* Серый цвет фона */
+            padding: 20px 0;
+        }
+
+        /* Стили для корзины */
+        #cart {
+            margin-top: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item h3 {
+            margin: 0;
+        }
+        .cart-item input {
+            width: 50px;
+            text-align: center;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Стили для кнопок */
+        button {
+            background-color: #007bff; /* Основной цвет кнопки */
+            color: white; /* Цвет текста */
+            border: none; /* Убираем стандартную рамку */
+            border-radius: 5px; /* Скругленные углы */
+            padding: 10px 15px; /* Отступы внутри кнопки */
+            cursor: pointer; /* Курсор при наведении */
+            transition: background-color 0.3s ease; /* Эффект перехода */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+
+        button:disabled {
+            background-color: #cccccc; /* Цвет для отключенной кнопки */
+            cursor: not-allowed; /* Курсор для отключенной кнопки */
+        }
+    </style>
+</head>
+<body class="landing">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">Лого</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="help.html">Помощь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="login.html" class="button special">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cart Section -->
+    <section id="cart" class="wrapper style1 special">
+        <div class="container">
+            <header class="major">
+                <h2>Корзина</h2>
+                <p>Ваши выбранные товары:</p>
+            </header>
+            <div class="cart-item">
+                <div>
+                    <img src="images/shoes.jpg" alt="Кроссовки" style="width: 100px; height: auto;"/>
+                    <h3>Кроссовки</h3>
+                    <p>Цена: 3000 руб.</p>
+                </div>
+                <div>
+                    <input type="number" value="1" min="1" />
+                    <button>Удалить</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div>
+                    <img src="images/skis.jpg" alt="Лыжи" style="width: 100px; height: auto;"/>
+                    <h3>Лыжи</h3>
+                    <p>Цена: 5000 руб.</p>
+                </div>
+                <div>
+                    <input type="number" value="1" min="1" />
+                    <button>Удалить</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div>
+                    <img src="images/product1.jpg" alt="Товар 1" style="width: 100px; height: auto;"/>
+                    <h3>Товар 3</h3>
+                    <p>Цена: 1000 руб.</p>
+                </div>
+                <div>
+                    <input type="number" value="1" min="1" />
+                    <button>Удалить</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div>
+                    <img src="images/product2.jpg" alt="Товар 2" style="width: 100px; height: auto;"/>
+                    <h3>Товар 4</h3>
+                    <p>Цена: 1500 руб.</p>
+                </div>
+                <div>
+                    <input type="number" value="1" min="1" />
+                    <button>Удалить</button>
+                </div>
+            </div>
+            <div class="total">
+                <p>Итого: 13500 руб.</p>
+            </div>
+            <div class="row uniform">
+                <div class="12u">
+                    <ul class="actions">
+                        
+						<li><button class="apply-button" onclick="location.href='order.html'">Оформить заказ</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="3u 6u(medium) 12u$(small)">
+                        <h3>Ссылки</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Telegram</a></li>
+                            <li><a href="#">VK</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u 6u$(medium) 12u$(small)">
+                        <h3>Помощь</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Документация</a></li>
+                            <li><a href="#">Гайд</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u$ 6u$(medium) 12u$(small)">
+                        <h3>О компании</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Наша команда</a></li>
+                            <li><a href="#">Сотрудничество</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>

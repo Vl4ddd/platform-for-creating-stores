@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кроссовки Bartend</title>
+    <meta name="description" content="Кроссовки Bartend" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/skel.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style-medium.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <style>
+        .apply-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .apply-button:hover {
+            background-color: #218838;
+        }
+        footer {
+            margin-top: 40px;
+        }
+        .product-image {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">Лого</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="catalog.html" class="button special">Каталог</a></li>
+                <li><a href="help.html">Помощь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="login.html">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Кроссовки Bartend</h2>
+        <div style="display: flex; justify-content: space-between;">
+            <img src="images/ccross.jpeg" alt="Кроссовки Bartend" class="product-image"/>
+            <div style="margin-left: 20px;">
+                <p style="font-size: 24px; color: #333;">Цена: 8999₽</p>
+                <p><strong>Характеристики:</strong></p>
+                <ul>
+                    <li>Размер: 40</li>
+                    <li>Страна производства: Китай</li>
+                    <li>Материал: Синтетика</li>
+                    <li>Цвет: Синий</li>
+                </ul>
+                <p>Описание: Кроссовки Bartend - стильный и удобный выбор для повседневной носки.</p>
+                <button class="apply-button" onclick="location.href='store.html'">Купить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="3u 6u(medium) 12u$(small)">
+                        <h3>Ссылки</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Telegram</a></li>
+                            <li><a href="#">VK</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u 6u$(medium) 12u$(small)">
+                        <h3>Помощь</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Документация</a></li>
+                            <li><a href="#">Гайд</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u$ 6u$(medium) 12u$(small)">
+                        <h3>О компании</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Наша команда</a></li>
+                            <li><a href="#">Сотрудничество</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>

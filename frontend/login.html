@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Регистрация" />
+    <meta name="keywords" content="регистрация, платформа, онлайн-магазин" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/skel.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style-large.css" rel="stylesheet" type="text/css">
+    <link href="css/style-medium.css" rel="stylesheet" type="text/css">
+    <link href="css/style-small.css" rel="stylesheet" type="text/css">
+    <link href="css/style-xlarge.css" rel="stylesheet" type="text/css">
+    <link href="css/style-xsmall.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+</head>
+<body class="landing">
+
+    <!-- Header -->
+        <header id="header">
+        <h1><a href="index.html">Лого</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="help.html">Помощь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+				<li><a href="profile.html">Профиль</a></li>
+                <li><a href="login.html" class="button special">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Registration Section -->
+    <section id="registration" class="wrapper style1 special">
+        <div class="container">
+            <header class="major">
+                <h2>Регистрация</h2>
+                <p>Пожалуйста, заполните форму ниже для создания учетной записи.</p>
+            </header>
+            <form method="post" action="register.php">
+                <div class="row uniform">
+                    <div class="6u 12u$(xsmall)">
+                        <input type="text" name="username" id="username" placeholder="Имя пользователя" required />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <input type="email" name="email" id="email" placeholder="Email" required />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <input type="password" name="password" id="password" placeholder="Пароль" required />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <input type="password" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" required />
+                    </div>
+                </div>
+                <div class="row uniform">
+                    <div class="12u">
+                        <ul class="actions">
+                            <li><input type="submit" value="Зарегистрироваться" class="special" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="3u 6u(medium) 12u$(small)">
+                        <h3>Ссылки</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Telegram</a></li>
+                            <li><a href="#">VK</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u 6u$(medium) 12u$(small)">
+                        <h3>Помощь</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Документация</a></li>
+                            <li><a href="#">Гайд</a></li>
+                        </ul>
+                    </section>
+                    <section class="3u$ 6u$(medium) 12u$(small)">
+                        <h3>О компании</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">Наша команда</a></li>
+                            <li><a href="#">Сотрудничество</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>
