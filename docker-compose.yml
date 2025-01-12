@@ -71,7 +71,25 @@ services:
       backend:
         aliases:
           - "gateway"
-          
+    
+  productAPI:
+    image: productapi
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_APPLICATION_NAME: "productAPI"
+      KAFKA_BOOTSTRAP_SERVERS: "kafka:29092"
+      SPRING_PROFILES_ACTIVE: "default"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      configserver:
+        condition: service_started
+    networks:
+      backend:
+        aliases:
+          - "productapi"
+
   zookeeper:
     image: confluentinc/cp-zookeeper:6.2.4
     healthcheck:
