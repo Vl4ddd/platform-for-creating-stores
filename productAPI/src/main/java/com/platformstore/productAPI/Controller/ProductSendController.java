@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/orders")
+@RequestMapping("/api/v1/products")
 public class ProductSendController {
 
      private final Producer producer;
