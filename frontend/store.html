@@ -24,19 +24,23 @@
         #cart {
             margin-top: 20px;
         }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
             padding: 10px;
             border-bottom: 1px solid #ccc;
         }
+
         .cart-item h3 {
             margin: 0;
         }
+
         .cart-item input {
             width: 50px;
             text-align: center;
         }
+
         .total {
             font-weight: bold;
             margin-top: 20px;
@@ -60,6 +64,11 @@
         button:disabled {
             background-color: #cccccc; /* Цвет для отключенной кнопки */
             cursor: not-allowed; /* Курсор для отключенной кнопки */
+        }
+
+        /* Стили для заголовка корзины */
+        .major h2 {
+            margin-top: 80px; /* Отступ сверху для заголовка, чтобы избежать наложения */
         }
     </style>
 </head>
@@ -109,6 +118,7 @@
                 </div>
             </div>
             <div class="cart-item">
+
                 <div>
                     <img src="images/product1.jpg" alt="Товар 1" style="width: 100px; height: auto;"/>
                     <h3>Товар 3</h3>
@@ -136,8 +146,7 @@
             <div class="row uniform">
                 <div class="12u">
                     <ul class="actions">
-                        
-						<li><button class="apply-button" onclick="location.href='order.html'">Оформить заказ</button></li>
+                        <li><button class="apply-button" onclick="location.href='order.html'">Оформить заказ</button></li>
                     </ul>
                 </div>
             </div>
