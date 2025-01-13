@@ -15,5 +15,17 @@ spring:
               type:
                 headers: false
 
+  datasource:
+    url: jdbc:h2:mem:testdb  
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:  
+    platform: h2 
+
+  jpa:
+    hibernate:
+      ddl-auto: update 
+    show-sql: true  
+
 topic:
   send-order: send-order-event

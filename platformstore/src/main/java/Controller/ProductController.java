@@ -2,40 +2,44 @@ package Controller;
 
 import Models.Product;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import services.ProductService;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/products") 
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/")
-    public String products(@RequestParam(name = "title", required = false) String title, Model model) {
-        model.addAttribute("products", productService.listProducts(title));
-        return "products";
+    @GetMapping
+    public ResponseEntity<List<Product>> getProducts(@RequestParam(name = "title", required = false) String title) {
+        List<Product> products = productService.listProducts(title);
+        return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/product/{id}")
-    public String productInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productService.getProductById(id));
-        return "product-info";
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductInfo(@PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
     }
 
-    @PostMapping("/product/create")
-    public String createProduct(Product product) {
-        productService.saveProduct(product);
-        return "redirect:/";
-    }
-
-    @PostMapping("/product/addToBucket/${product.id}")
-    public String deleteProduct(@PathVariable Long id) {
+    
+    @PostMapping("/{id}/addToBucket")
+    public ResponseEntity<Void> addToBucket(@PathVariable Long id) {
         productService.addToBucket(id);
-        return "redirect:/";
+        return ResponseEntity.noContent().build(); 
     }
 }

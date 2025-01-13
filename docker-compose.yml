@@ -128,7 +128,7 @@ services:
     image: provectuslabs/kafka-ui
     container_name: kafka-ui
     ports:
-      - "8080:8080"
+      - "8090:8090"
     restart: always
     depends_on:
       kafka:

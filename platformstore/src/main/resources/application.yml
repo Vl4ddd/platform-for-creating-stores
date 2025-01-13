@@ -8,9 +8,9 @@ spring:
       import: configserver:${CONFIG_SERVER_URL:http://configserver:8888}
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/platformStore
-    username: postgres
-    password: 12345678
+    url: jdbc:postgresql://service-db:5432/platformStore
+    username: username
+    password: password
   freemarker:
     expose:
       attributes: true

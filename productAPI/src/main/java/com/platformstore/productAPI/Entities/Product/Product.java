@@ -8,27 +8,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+  
+    private String id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "price")
     private double price;
 
-    @Column(name = "quantity")
     private int quantity;
 }
