@@ -14,18 +14,25 @@
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
     <style>
+        /* Сброс стандартных отступов и полей */
+        body {
+            margin: 0; /* Убираем стандартные отступы */
+            padding: 0; /* Убираем стандартные поля */
+        }
+
         /* Стили для заголовка */
         #header {
             background-color: #f4f4f4 !important; /* Серый цвет фона */
-            padding: 20px 0;
+            padding: 20px 0; /* Можно уменьшить, если нужно */
             position: relative; /* Убедитесь, что позиционирование корректное */
             z-index: 10; /* Убедитесь, что заголовок выше других элементов */
         }
 
         /* Стили для формы оформления заказа */
         #order-form {
-            margin-top: 80px; /* Увеличьте отступ сверху, чтобы избежать наложения */
+            margin-top: 0; /* Убираем отступ сверху, если он не нужен */
         }
+
         .form-group {
             margin-bottom: 15px;
         }
