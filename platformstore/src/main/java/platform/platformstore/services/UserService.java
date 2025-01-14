@@ -54,6 +54,9 @@ public class UserService {
         }
     }
 
+    
+
+
     public boolean isUserExists(User userDTO) {
 
         return userRepository.existsByUsername(userDTO.getUsername());
