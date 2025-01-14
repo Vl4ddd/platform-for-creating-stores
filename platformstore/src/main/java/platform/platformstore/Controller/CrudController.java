@@ -1,5 +1,6 @@
 package platform.platformstore.Controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import platform.platformstore.Models.Product;
+import platform.platformstore.Models.ProductDTO;
 import platform.platformstore.Repository.ProductRepository;
 
 @RestController
@@ -37,8 +39,19 @@ public class CrudController {
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productRepository.save(product);
+    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO productDTO) {
+        Product product = new Product();
+        product.setTitle(productDTO.getTitle());
+        product.setDescription(productDTO.getDescription());
+        product.setPrice(productDTO.getPrice());
+        product.setStock(productDTO.getStock());
+
+        product.setCreatedAt(LocalDateTime.now());
+        product.setUpdatedAt(LocalDateTime.now());
+
+        Product savedProduct = productRepository.save(product);
+
+        return ResponseEntity.ok(savedProduct);
     }
 
 

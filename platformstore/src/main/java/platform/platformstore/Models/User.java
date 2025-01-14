@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
 public class User {
 
     @Id
@@ -28,6 +28,7 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<String> roles;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
