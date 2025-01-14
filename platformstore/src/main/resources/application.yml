@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: platformstore
+  cloud:
+    config:
+      import-check:
+        enabled: false
+      import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+
+#  datasource:
+ #   url: jdbc:postgresql://service-db:5432/platformStore
+  #  username: username
+   # password: password
+  #freemarker:
+   # expose:
+    #  attributes: true
+
+  #liquibase:
+   # enabled: true
+    #drop-first: false
+    #change-log: classpath:db/changelog/db.changelog-master.xml
+    #default-schema: public
+
+ # jpa:
+  #  show-sql: false
+   # open-in-view: false
+   # hibernate:
+    #  ddl-auto: none
+   # properties:
+    #  hibernate:
+     #   dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  topic:
+    send-order: send-order-event
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: "order-1"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+
+server:
+  port: 8080
+
+custom:
+  property: value
+
+eureka:
+  client:
+    registerWithEureka: true
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
