@@ -1,7 +1,8 @@
-package Repository;
+package platform.platformstore.Repository;
 
-import Models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import platform.platformstore.Models.Product;
 
 import java.util.List;
 

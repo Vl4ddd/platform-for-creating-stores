@@ -5,7 +5,7 @@ spring:
     config:
       import-check:
         enabled: false
-      import: configserver:${CONFIG_SERVER_URL:http://configserver:8888}
+      import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
 
   datasource:
     url: jdbc:postgresql://service-db:5432/platformStore

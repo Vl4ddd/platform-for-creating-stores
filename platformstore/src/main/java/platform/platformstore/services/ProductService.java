@@ -1,10 +1,11 @@
-package services;
+package platform.platformstore.services;
 
-import Models.Product;
-import Repository.BucketRepository;
-import Repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import platform.platformstore.Models.Product;
+import platform.platformstore.Repository.BucketRepository;
+import platform.platformstore.Repository.ProductRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +18,14 @@ public class ProductService {
     private final BucketRepository bucketRepository;
 
     public List<Product> listProducts(String title) {
-        if (title != null) return productRepository.findByTitle(title);
+        if (title != null)
+            return productRepository.findByTitle(title);
         return productRepository.findAll();
     }
 
-    public void saveProduct(Product product) {
+    public Product saveProduct(Product product) {
         log.info("Saving new {}", product);
-        productRepository.save(product);
+        return productRepository.save(product);
     }
 
     public void addToBucket(Long id) {

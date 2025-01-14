@@ -1,4 +1,4 @@
-package Models;
+package platform.platformstore.Models;
 
 
 import lombok.AllArgsConstructor;
