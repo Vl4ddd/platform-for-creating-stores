@@ -1,18 +1,22 @@
 package platform.platformstore.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import platform.platformstore.Exception.UserAlreadyExistsException;
+import platform.platformstore.Models.Role;
 import platform.platformstore.Models.User;
 import platform.platformstore.Repository.UserRepository;
 
 @Service
 public class UserService {
 
-     private final UserRepository userRepository; // Предполагается, что у вас есть репозиторий для доступа к данным
-                                                 // пользователей
-    private final PasswordEncoder passwordEncoder; // Для шифрования паролей
+     private final UserRepository userRepository; 
+                                                 
+    private final PasswordEncoder passwordEncoder; 
 
     @Autowired
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
@@ -35,10 +39,27 @@ public class UserService {
 
     }
 
+
+    public User updateProfile(User user) {
+        Optional<User> optionalUser  = userRepository.findById(user.getId());
+        if (optionalUser .isPresent()) {
+            User userbyId = optionalUser.get();
+            userbyId.setFirstName(user.getFirstName());
+            userbyId.setLastName(user.getLastName());
+            userbyId.setEmail(user.getEmail());
+            userRepository.save(user); 
+            return userbyId; 
+        } else {
+            throw new RuntimeException("Пользователь не найден"); 
+        }
+    }
+
     public boolean isUserExists(User userDTO) {
 
-        return userRepository.existsByLogin(userDTO.getLogin());
+        return userRepository.existsByUsername(userDTO.getUsername());
 
     }
+
+
 
 }
