@@ -2,6 +2,7 @@ package platform.platformstore.Models;
 
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -26,4 +27,7 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt = LocalDateTime.now();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles;
 }
